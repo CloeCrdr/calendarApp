@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendar App</title>
+    <link rel="stylesheet" href="./css/calendrier.css">
+    <script src="./js/renderer.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"> 
+</head>
+
+<body data-theme="light">
+    <div id="appYear"></div>
+    <div id="appMonth"></div>
+    <div class="change">
+        <button class="precedent" id="back">Précedent</button>
+        <div class="lightdark" >
+            <ul>
+                <li data-mode="light">☼</li>
+                <li data-mode="dark">☽</li>
+            </ul>
+        </div>
+        <button class="suivant" id="next">Suivant</button>
+    </div>
+    <div class="weekDays">
+        <div>Lun</div>
+        <div>Mar</div>
+        <div>Mer</div>
+        <div>Jeu</div>
+        <div>Ven</div>
+        <div>Sam</div>
+        <div>Dim</div>
+    </div>
+    <div id="app">
+    </div>
+</body>
+
+</html>

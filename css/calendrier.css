@@ -1,0 +1,139 @@
+body {
+    box-sizing: border-box;
+    background-color: var(--fond);
+    color : var(--textColor);
+}
+
+[data-theme="light"] {
+    --fond : rgb(225, 225, 225);
+    --colorA: rgb(102, 58, 102);
+    --colorB: rgb(207, 181, 207);
+
+    --colorC: rgb(98, 53, 98);
+    --colorD:var(--colorB);
+
+    --textColor : black;
+}
+
+[data-theme="dark"] {
+    --fond : rgb(64, 61, 67);
+    --colorA : rgb(207, 181, 207);
+    --colorB : rgb(102, 58, 102);
+
+    --colorC: var(--colorA);
+    --colorD: rgb(98, 53, 98);
+
+    --textColor: white;
+}
+
+#app, .weekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+#app {   
+    grid-auto-rows: 95px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
+}
+
+#app>*, .weekDays {
+    margin: 5px;
+    padding: 15px;
+}
+
+.caseInactive {
+    background-color: gray;
+    
+}
+
+.caseActive {
+    box-shadow:2px 3px 1px gray;
+    border: 0.7px solid gray ;
+    transition-duration: 3ms, 5ms;
+}
+
+.caseActive:hover {
+    background: rgb(150, 129, 150);
+    color: white;
+    border: 0.7px solid white ;
+    cursor: pointer;
+}
+
+#app, .weekDays {
+    width: 55%;
+    margin: auto;
+}
+.weekDays { 
+    grid-auto-rows: 25px;
+    text-align: center!important;
+}
+.weekDays div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Merriweather';
+    text-transform: uppercase;
+    color: var(--colorA);
+}
+
+#appMonth, #appYear{
+    width: 55%;
+    margin: auto;
+    text-align: center;
+}
+#appYear {   
+    font-family: 'Merriweather';
+    text-transform: uppercase;
+    color: var(--colorA) ;
+}
+.month {
+    font-family: 'Merriweather';
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--colorC);
+    text-shadow: 1px 0px 1px var(--colorA);
+    box-shadow: inset 0px -15px 0px var(--colorD);
+}
+
+
+.change {
+    margin: auto;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.change ul {
+    padding: 0px;
+    list-style: none;
+    justify-content: center;
+    gap: 20px;
+}
+
+.change ul li {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px; margin-right: 5px;
+    font-weight: normal;
+}
+
+.change button {
+  padding: 5px;
+  padding-left: 20px; 
+  padding-right: 20px; 
+  font-family: 'Merriweather';
+  border-radius: 5px;
+  border: 0px;
+  background-color: var(--colorB);
+  border: rgb(150, 129, 150);
+  color: var(--colorA);
+  transition: ease-in 0.4ms;
+  cursor: pointer;
+}
+
+.change button:hover {
+    color: var(--colorD);
+    background-color: var(--colorA);
+}
