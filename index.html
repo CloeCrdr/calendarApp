@@ -15,17 +15,23 @@
 </head>
 
 <body data-theme="light">
-    <div id="appYear"></div>
-    <div id="appMonth"></div>
-    <div class="change">
-        <button class="precedent" id="back">Précedent</button>
+    <div class="entete">
+        <div id="appYear"></div>
+        <div id="appMonth"></div>
+        <div class="btnApp"> 
+            <div class="change">
+                <button class="precedent" id="back">Précedent</button>
+                <button class="suivant" id="next">Suivant</button>
+            </div>
+            <button id="eventAdd">Ajouter un événement</button>
+        </div>
         <div class="lightdark" >
             <ul>
                 <li data-mode="light">☼</li>
                 <li data-mode="dark">☽</li>
             </ul>
         </div>
-        <button class="suivant" id="next">Suivant</button>
+        
     </div>
     <div class="weekDays">
         <div>Lun</div>

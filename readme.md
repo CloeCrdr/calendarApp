@@ -1,3 +1,14 @@
+### Initialisation du projet
+
+npm install 
+npm start
+
+# Éléments à noter
+- Nom de la Base de données : **calendier**
+
+- Les informations de connexion sont à changer dans les fichiers *add.js* ; *delete.js* ; *read.js* & *update.js*
+
+### Consignes du projet
 Par principe l'affichage d'un calendrier est un **problème algorithmique** (*vous n'avez probablement pas poussé trop ce concept jusqu'à présent*)
 
 # Dans un premier temps 

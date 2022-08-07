@@ -12,7 +12,11 @@ body {
     --colorC: rgb(98, 53, 98);
     --colorD:var(--colorB);
 
+    --colorE : rgb(60, 53, 98);
+    --colorF : rgb(130, 134, 190);
+
     --textColor : black;
+    --colorText : white;
 }
 
 [data-theme="dark"] {
@@ -23,33 +27,43 @@ body {
     --colorC: var(--colorA);
     --colorD: rgb(98, 53, 98);
 
+    --colorE : rgb(130, 134, 190);
+    --colorF : rgb(60, 53, 98);
+
     --textColor: white;
+    --colorText: black;
 }
 
 #app, .weekDays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
-#app {   
-    grid-auto-rows: 95px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.7rem;
+@media (min-width: 800px) {
+    #app {   
+        grid-auto-rows: 95px;   
+    }
+    #app, .weekDays, .entete, .entete1{
+        width: 75%;
+        margin: auto;
+    }
 }
 
+#app {font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;}
 #app>*, .weekDays {
     margin: 5px;
     padding: 15px;
 }
 
 .caseInactive {
-    background-color: gray;
-    
+    background-color: gray;  
 }
 
 .caseActive {
     box-shadow:2px 3px 1px gray;
     border: 0.7px solid gray ;
     transition-duration: 3ms, 5ms;
+    overflow: auto;
 }
 
 .caseActive:hover {
@@ -60,11 +74,11 @@ body {
 }
 
 #app, .weekDays {
-    width: 55%;
     margin: auto;
 }
 .weekDays { 
-    grid-auto-rows: 25px;
+    display: flex;
+    justify-content: space-between;
     text-align: center!important;
 }
 .weekDays div{
@@ -77,7 +91,6 @@ body {
 }
 
 #appMonth, #appYear{
-    width: 55%;
     margin: auto;
     text-align: center;
 }
@@ -86,7 +99,7 @@ body {
     text-transform: uppercase;
     color: var(--colorA) ;
 }
-.month {
+.month, #eventTitre, .editEvent, .addEvent{
     font-family: 'Merriweather';
     font-size: 2rem;
     text-align: center;
@@ -95,31 +108,61 @@ body {
     text-shadow: 1px 0px 1px var(--colorA);
     box-shadow: inset 0px -15px 0px var(--colorD);
 }
-
-
-.change {
-    margin: auto;
-    width: 55%;
+.btnApp {
     display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: auto;
+    width: 100%;
+}
+
+.btnApp #eventAdd {
+  padding: 5px;
+  padding-left: 20px; 
+  padding-right: 20px; 
+  font-family: 'Merriweather';
+  border-radius: 5px;
+  border: 0px;
+  background-color: var(--colorA);
+  border: rgb(150, 129, 150);
+  color: var(--colorB);
+  cursor: pointer;
+  margin-top: 5px;
+}
+.btnApp #eventAdd:hover {
+    background-color: var(--colorB);
+    color: var(--colorA);
+}
+.change {
+    margin: 4px;
+    margin-top: 10px;
+    display: flex;
+    width: 200px;
     justify-content: space-between;
     align-items: center;
 }
 
-.change ul {
+.lightdark {
+    position: absolute;
+    top: 0px;
+    left: 30%;
+}
+
+.lightdark ul {
     padding: 0px;
     list-style: none;
     justify-content: center;
     gap: 20px;
 }
 
-.change ul li {
+.lightdark ul li {
     cursor: pointer;
     display: inline-block;
     margin-left: 5px; margin-right: 5px;
     font-weight: normal;
 }
 
-.change button {
+.change button,#buttonsEvent button {
   padding: 5px;
   padding-left: 20px; 
   padding-right: 20px; 
@@ -133,7 +176,74 @@ body {
   cursor: pointer;
 }
 
-.change button:hover {
+.change button:hover, #buttonsEvent button:hover {
     color: var(--colorD);
     background-color: var(--colorA);
+}
+
+div#event.event:nth-child(odd) {
+    background-color: var(--colorE);
+    color: var(--colorText);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 2px;
+    text-overflow: ellipsis!important;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+div#event.event:nth-child(even) {
+    background-color: var(--colorF);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 2px;
+    text-overflow: ellipsis!important;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+
+.entete1 {
+    text-align: center!important;
+}
+
+#eventDate {
+    display: flex;
+    justify-content: center;
+}
+
+#eventDate span {
+    font-style: italic;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.contentEvent {
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+}
+.contentEvent strong {
+    font-weight: 900;
+    padding: 1.2rem;
+    color: var(--colorA);
+}
+
+#buttonsEvent {
+    margin: auto;
+    margin-top: 2rem;
+    width: 70%;
+    text-align:center;
+}
+
+.rowEdit, .rowAdd {height: 2rem;}
+.rowEdit span, .rowAdd span {
+    font-weight: 900;
+    padding: 1.2rem;
+    color: var(--colorA);
+    display: inline-block;
+    width: 100px;
+}
+
+.rowEdit input, .rowAdd input {
+    width: 200px;
 }
